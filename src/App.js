@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, Container } from "@mui/material";
+import React, { useEffect } from "react";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./styles/themes/theme";
+import Tracker from "./pages/tracker";
+import { Utilities } from "./pages/utilities";
 
 function App() {
+  useEffect(() => {
+    document.title = "valorant tracker home";
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Tracker />} />
+          <Route path="/tracker" element={<Tracker />} />
+          <Route path="/utilities" element={<Utilities />} />
+          <Route path="*" element={<p>NOT FOUND</p>} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
