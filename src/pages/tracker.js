@@ -1,4 +1,4 @@
-import { Button, Container } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Appbar } from "../components/appbar/Appbar";
@@ -17,6 +17,14 @@ function Tracker() {
       <Style />
       <Appbar />
       <Banner />
+      <Typography
+        variant="h4"
+        display={"flex"}
+        justifyContent="center"
+        sx={{ p: 4 }}
+      >
+        Game Maps
+      </Typography>
       <MapList />
       {/** 
         hidden drawer for mobile
