@@ -3,7 +3,9 @@ import React, { useEffect } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Appbar } from "../components/appbar/Appbar";
 import { Banner } from "../components/banner/Banner";
+import { MapList } from "../components/mapList/MapList";
 import { Style } from "../styles/AppBar/AppbarStyled";
+import { Colors } from "../styles/themes/theme";
 
 function Tracker() {
   useEffect(() => {
@@ -15,6 +17,7 @@ function Tracker() {
       <Style />
       <Appbar />
       <Banner />
+      <MapList />
       {/** 
         hidden drawer for mobile
         MainPage (welcome page)
