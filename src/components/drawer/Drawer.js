@@ -22,7 +22,12 @@ export const AppDrawer = () => {
     console.log(e);
     console.log("close");
     if (
-      !(e.clientX > 40 && e.clientX < 80 && e.clientX > 40 && e.clientY < 80)
+      !(
+        e.target.attributes[0].nodeValue ==
+          "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root" ||
+        e.target.attributes[0].nodeValue ==
+          "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+      )
     ) {
       setDrawerOpen(false);
     }
