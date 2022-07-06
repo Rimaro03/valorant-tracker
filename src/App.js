@@ -4,7 +4,7 @@ import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import theme, { Colors } from "./styles/themes/theme";
 import Tracker from "./pages/tracker";
-import { Utilities } from "./pages/utilities";
+import { Items } from "./pages/items";
 import { Box } from "@mui/system";
 
 function App() {
@@ -13,13 +13,13 @@ function App() {
   }, []);
 
   return (
-    <Box>
+    <Box sx={{ backgroundColor: Colors.body_bg, maxWidth: "100%" }}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Tracker />} />
             <Route path="/tracker" element={<Tracker />} />
-            <Route path="/utilities" element={<Utilities />} />
+            <Route path="/items" element={<Items />} />
             <Route path="*" element={<p>NOT FOUND</p>} />
           </Routes>
         </BrowserRouter>

@@ -4,6 +4,7 @@ import { Colors } from "../themes/theme";
 import "@fontsource/montez";
 import { createGlobalStyle } from "styled-components";
 import valfont from "./valFont.ttf";
+import { Link } from "react-router-dom";
 
 export const Style = createGlobalStyle`
   @font-face {
@@ -32,7 +33,13 @@ export const AppbarHeader = styled(Typography)(() => ({
 
 export const MyList = styled(List)(({ type }) => ({
   display: type === "row" ? "flex" : "block",
-  flexGrow: 3,
+  flexGrow: 2,
   justifyContent: "center",
-  alignItems: "center",
+  alignItems: "center"
 }));
+
+export const MyLink = styled(Link)(() => ({
+  textDecoration: "none",
+  color: "black",
+  cursor: "pointer",
+}))

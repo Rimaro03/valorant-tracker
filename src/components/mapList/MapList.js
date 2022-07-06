@@ -50,7 +50,7 @@ export const MapList = () => {
         justifyContent={"center"}
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
-        sx={{ margin: "20px 4px 10px 4px" }}
+        sx={{ margin: "10px 4px 10px 4px" }}
       >
         {renderMaps}
       </Grid>

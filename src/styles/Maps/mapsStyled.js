@@ -16,10 +16,8 @@ export const MapImage = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
   width: "100%",
   backgroundColor: Colors.light_gray,
-  padding: "10px",
   [theme.breakpoints.down("md")]: {
     width: "80%",
-    padding: "24px",
   },
 }));
 
