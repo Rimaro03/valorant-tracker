@@ -12,8 +12,8 @@ export const DesktopBar = ({ matches }) => {
     <AppbarContainer>
       <AppbarHeader>TRaCKER</AppbarHeader>
       <MyList type="row">
-        <ListItemText primary="tracker" />
-        <ListItemText primary="utilities" />
+        <ListItemText primary="Tracker" />
+        <ListItemText primary="In-game items" />
         <ListItemText primary="GitHub" />
         <ListItemButton sx={{ justifyContent: "center" }}>
           <ListItemIcon>

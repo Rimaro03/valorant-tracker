@@ -48,6 +48,17 @@ const theme = createTheme({
         disableElevation: true,
       },
     },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          width: 250,
+          background: Colors.primary,
+          color: Colors.secondary,
+          borderRadius: "0px 100px 0px 0px",
+          borderRight: `1px solid ${Colors.secondary}`,
+        },
+      },
+    },
   },
 });
 
