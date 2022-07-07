@@ -6,6 +6,7 @@ import theme, { Colors } from "./styles/themes/theme";
 import Tracker from "./pages/tracker";
 import { Items } from "./pages/items";
 import { Box } from "@mui/system";
+import { Player } from "./pages/player";
 
 function App() {
   useEffect(() => {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Tracker />} />
             <Route path="/tracker" element={<Tracker />} />
             <Route path="/items" element={<Items />} />
+            <Route path="/player" element={<Player />} />
             <Route path="*" element={<p>NOT FOUND</p>} />
           </Routes>
         </BrowserRouter>

@@ -19,8 +19,6 @@ export const AppDrawer = () => {
   const { drawerOpen, setDrawerOpen } = useUIContext();
 
   const closeDrawer = (e) => {
-    console.log(e);
-    console.log("close");
     if (
       !(
         e.target.attributes[0].nodeValue ==

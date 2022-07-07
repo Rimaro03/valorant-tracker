@@ -1,8 +1,9 @@
 import { GitHub, Instagram } from "@mui/icons-material";
-import { Box, Grid, List, ListItemText, Typography } from "@mui/material";
+import { Box, Grid, Link, List, ListItemText, Typography } from "@mui/material";
 import React from "react";
 import { FooterTitle } from "../../styles/Footer/footerStyled";
 import { Colors } from "../../styles/themes/theme";
+import { MyLink } from "../../styles/Footer/footerStyled";
 
 export const Footer = () => {
   return (
@@ -30,17 +31,17 @@ export const Footer = () => {
           <List>
             <ListItemText>
               <Typography lineHeight={2} variant="caption">
-                About me
+                <MyLink to="/">About me</MyLink>
               </Typography>
             </ListItemText>
             <ListItemText>
               <Typography lineHeight={2} variant="caption">
-                Tracking
+                <MyLink to="/">Tracking</MyLink>
               </Typography>
             </ListItemText>
             <ListItemText>
               <Typography lineHeight={2} variant="caption">
-                In-game items
+                <MyLink to="/items">In-game items</MyLink>
               </Typography>
             </ListItemText>
           </List>
@@ -50,17 +51,35 @@ export const Footer = () => {
           <List>
             <ListItemText>
               <Typography lineHeight={2} variant="caption">
-                Riot games
+                <Link
+                  href="https://www.riotgames.com/en"
+                  underline="none"
+                  color="inherit"
+                >
+                  Riot games
+                </Link>
               </Typography>
             </ListItemText>
             <ListItemText>
               <Typography lineHeight={2} variant="caption">
-                Valorant API
+                <Link
+                  href="https://dash.valorant-api.com/"
+                  underline="none"
+                  color="inherit"
+                >
+                  Valorant API
+                </Link>
               </Typography>
             </ListItemText>
             <ListItemText>
               <Typography lineHeight={2} variant="caption">
-                Player tracking API
+                <Link
+                  href="https://docs.henrikdev.xyz/valorant.html"
+                  underline="none"
+                  color="inherit"
+                >
+                  Player tracking API
+                </Link>
               </Typography>
             </ListItemText>
           </List>
@@ -69,7 +88,7 @@ export const Footer = () => {
           <FooterTitle variant="body1">Contact me</FooterTitle>
           <List>
             <ListItemText>
-              <Typography lineHeight={2} variant="caption" >
+              <Typography lineHeight={2} variant="caption">
                 Email: foo@gmail.com
               </Typography>
             </ListItemText>

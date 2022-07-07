@@ -6,6 +6,7 @@ import { Banner } from "../components/banner/Banner";
 import { AppDrawer } from "../components/drawer/Drawer";
 import { Footer } from "../components/footer/Footer";
 import { MapList } from "../components/mapList/MapList";
+import Search from "../components/search/Search";
 import { UIProvider } from "../context/ui/ui";
 import { Style } from "../styles/AppBar/AppbarStyled";
 import { Colors } from "../styles/themes/theme";
@@ -19,6 +20,7 @@ function Tracker() {
     <Container maxWidth="xl" sx={{ backgroundColor: "#fff" }}>
       <UIProvider>
         <AppDrawer />
+        <Search />
         <Style />
         <Appbar />
         <Banner />
