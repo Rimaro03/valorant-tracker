@@ -16,8 +16,9 @@ import {
   MyList,
 } from "../../styles/AppBar/AppbarStyled";
 
-export const DesktopBar = ({ matches }) => {
+export const DesktopBar = (props, { matches }) => {
   const { setShowSearchBox } = useUIContext();
+
   return (
     <AppbarContainer>
       <AppbarHeader>TRaCKER</AppbarHeader>
@@ -38,7 +39,7 @@ export const DesktopBar = ({ matches }) => {
           </Link>
         </ListItem>
         <ListItem>
-          <ListItemButton
+          {props.searchBar ? <ListItemButton
             sx={{ justifyContent: "center" }}
             onClick={() => setShowSearchBox(true)}
           >
@@ -48,7 +49,7 @@ export const DesktopBar = ({ matches }) => {
             <ListItemText>
               <Typography variant="button">Search</Typography>
             </ListItemText>
-          </ListItemButton>
+          </ListItemButton> : <></>}
         </ListItem>
       </MyList>
     </AppbarContainer>

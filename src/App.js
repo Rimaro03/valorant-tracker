@@ -3,10 +3,10 @@ import React, { useEffect } from "react";
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import theme, { Colors } from "./styles/themes/theme";
-import Tracker from "./pages/tracker";
-import { Items } from "./pages/items";
 import { Box } from "@mui/system";
-import { Player } from "./pages/player";
+import Tracker from "./pages/tracker/tracker";
+import { Items } from "./pages/items/items";
+import { Player } from "./pages/player/player";
 
 function App() {
   useEffect(() => {

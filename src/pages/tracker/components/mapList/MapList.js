@@ -1,9 +1,9 @@
 import { useTheme } from "@mui/material/styles";
 import { Grid, useMediaQuery } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { publicRequest } from "../../API/request";
 import { Container } from "@mui/system";
 import { SingleMap } from "./SingleMap";
+import { publicRequest } from "../../../../API/request";
 
 export const MapList = () => {
   const theme = useTheme();

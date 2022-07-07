@@ -1,11 +1,11 @@
-import { Button, IconButton, Slide, TextField } from "@mui/material";
+import { Backdrop, Button, CircularProgress, IconButton, Slide, TextField } from "@mui/material";
 import { Box, styled } from "@mui/system";
-import { Colors } from "../../styles/themes/theme";
+import { Colors } from "../../../../styles/themes/theme";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
-import { useUIContext } from "../../context/ui/ui";
+import { useUIContext } from "../../../../context/ui/ui";
 import { useState } from "react";
-import { playerRequest } from "../../API/request";
+import { playerRequest } from "../../../../API/request";
 import { useNavigate } from "react-router-dom";
 
 const SearchBoxContainer = styled(Box)(({ theme }) => ({
@@ -41,6 +41,7 @@ const SearchField = styled(TextField)(({ theme }) => ({
 
 export default function Search() {
   const { showSearchBox, setShowSearchBox } = useUIContext();
+  const { loadingOpen, setLoadingOpen } = useUIContext();
   const [text, setText] = useState("");
   const navigate = useNavigate();
 
@@ -49,12 +50,12 @@ export default function Search() {
   };
 
   const handleSearch = () => {
-    console.log(text);
     const nick = text.split("#")[0];
     const tag = text.split("#")[1];
     playerRequest(`v1/account/${nick}/${tag}`).then((res) => {
       if (res) {
         window.localStorage.setItem("playerStats", JSON.stringify(res.data));
+        navigate("/player")
       } else {
         alert("errore");
       }
@@ -62,7 +63,7 @@ export default function Search() {
   };
 
   return (
-    <Slide direction="down" in={showSearchBox} timeout={500}>
+    <Backdrop direction="down" open={showSearchBox} timeout={500}>
       <SearchBoxContainer>
         <SearchField
           color="secondary"
@@ -88,6 +89,6 @@ export default function Search() {
           <CloseIcon sx={{ fontSize: "4rem" }} color="secondary" />
         </IconButton>
       </SearchBoxContainer>
-    </Slide>
+    </Backdrop>
   );
 }

@@ -7,7 +7,7 @@ import {
   BannerDescription,
   BannerImage,
   BannerTitle,
-} from "../../styles/Banner/BannerStyled";
+} from "../../../../styles/Banner/BannerStyled";
 
 export const Banner = () => {
   const theme = useTheme();
