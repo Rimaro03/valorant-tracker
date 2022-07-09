@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { MapMetaWrapper } from "../../../../styles/Maps/mapsStyled";
+import { MapMetaWrapper } from "../../styles/Maps/mapsStyled";
 
 export const MapMeta = ({ map, matches }) => {
   return (

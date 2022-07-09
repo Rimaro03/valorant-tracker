@@ -5,8 +5,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme, { Colors } from "./styles/themes/theme";
 import { Box } from "@mui/system";
 import Tracker from "./pages/tracker/tracker";
-import { Items } from "./pages/items/items";
 import { Player } from "./pages/player/player";
+import { Items } from "./pages/items/items";
 
 function App() {
   useEffect(() => {

@@ -8,5 +8,13 @@ export const Appbar = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md")); //if true it's a mobile device
 
-  return <>{matches ? <MobileBar searchBar={props.searchBar} /> : <DesktopBar searchBar={props.searchBar} />}</>;
+  return (
+    <>
+      {matches ? (
+        <MobileBar searchBar={props.searchBar} />
+      ) : (
+        <DesktopBar searchBar={props.searchBar} />
+      )}
+    </>
+  );
 };

@@ -7,8 +7,9 @@ import {
   AppbarHeader,
 } from "../../styles/AppBar/AppbarStyled";
 
-export const MobileBar = ({ matches }, props) => {
+export const MobileBar = (props, { matches }) => {
   const { setDrawerOpen } = useUIContext();
+  const { setShowSearchBox } = useUIContext();
 
   return (
     <AppbarContainer>
@@ -21,9 +22,16 @@ export const MobileBar = ({ matches }, props) => {
         <Menu />
       </IconButton>
       <AppbarHeader textAlign={"center"}>trAcker</AppbarHeader>
-      {props.searchBar ? <IconButton>
-        <Search />
-      </IconButton> : <></>}
+      {props.searchBar ? (
+        <IconButton
+          sx={{ justifyContent: "center" }}
+          onClick={() => setShowSearchBox(true)}
+        >
+          <Search />
+        </IconButton>
+      ) : (
+        <></>
+      )}
     </AppbarContainer>
   );
 };

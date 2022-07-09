@@ -7,9 +7,6 @@ export const Map = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  [theme.breakpoints.down("md")]: {
-    position: "relative",
-  },
 }));
 
 export const MapImage = styled("img")(({ src, theme }) => ({

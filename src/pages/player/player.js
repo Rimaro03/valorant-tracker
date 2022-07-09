@@ -1,6 +1,8 @@
 import { Container } from "@mui/system";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { PlayerInfo } from "../../components/playerInfo/PlayerInfo";
+import Search from "../../components/search/Search";
 import { UIProvider } from "../../context/ui/ui";
 import { Appbar } from "../../global-components/appbar/Appbar";
 import { AppDrawer } from "../../global-components/drawer/Drawer";
@@ -14,11 +16,15 @@ export const Player = () => {
       navigate("/");
     }
   }, []);
-  return (<Container maxWidth="xl" sx={{ backgroundColor: "#fff" }}>
-    <UIProvider>
-      <AppDrawer />
-      <Style />
-      <Appbar searchBar={false} />
-    </UIProvider>
-  </Container>);
+  return (
+    <Container maxWidth="xl" sx={{ backgroundColor: "#fff" }}>
+      <UIProvider>
+        <AppDrawer />
+        <Style />
+        <Search />
+        <Appbar searchBar={true} />
+        <PlayerInfo />
+      </UIProvider>
+    </Container>
+  );
 };

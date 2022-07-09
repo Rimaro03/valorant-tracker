@@ -1,5 +1,5 @@
 import React from "react";
-import { Map, MapImage } from "../../../../styles/Maps/mapsStyled";
+import { Map, MapImage } from "../../styles/Maps/mapsStyled";
 import { MapMeta } from "./MapMeta";
 
 export const SingleMap = ({ map, matches }) => {
