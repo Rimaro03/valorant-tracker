@@ -1,9 +1,9 @@
 import { Button, Container, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import { Appbar } from "../../global-components/appbar/Appbar";
-import { AppDrawer } from "../../global-components/drawer/Drawer";
-import { Footer } from "../../global-components/footer/Footer";
+import { Appbar } from "../../components/appbar/Appbar";
+import { AppDrawer } from "../../components/drawer/Drawer";
+import { Footer } from "../../components/footer/Footer";
 import Search from "../../components/search/Search";
 import { UIProvider } from "../../context/ui/ui";
 import { Style } from "../../styles/AppBar/AppbarStyled";

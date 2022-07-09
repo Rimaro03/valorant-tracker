@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { PlayerInfo } from "../../components/playerInfo/PlayerInfo";
 import Search from "../../components/search/Search";
 import { UIProvider } from "../../context/ui/ui";
-import { Appbar } from "../../global-components/appbar/Appbar";
-import { AppDrawer } from "../../global-components/drawer/Drawer";
+import { Appbar } from "../../components/appbar/Appbar";
+import { AppDrawer } from "../../components/drawer/Drawer";
 import { Style } from "../../styles/AppBar/AppbarStyled";
 
 export const Player = () => {
