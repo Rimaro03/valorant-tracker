@@ -1,56 +1,91 @@
-import { Image, PaletteRounded } from "@mui/icons-material";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
+import { Icon, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { BannerContainer, BannerImage } from "../../styles/Banner/BannerStyled";
+import { playerRequest, publicRequest } from "../../API/request";
 import {
   PlayerImage,
   PlayerinfoContainer,
   PlayerStats,
 } from "../../styles/PlayerInfo/PlayerInfoStyled";
+import { DataGrid } from "./DataGrid";
 
 export const PlayerInfo = () => {
-  const [player, setPlayer] = useState(
-    JSON.parse(window.localStorage.getItem("playerStats"))
-  );
+  const [rankIcon, setRankIcon] = useState();
+  const [mmr, setMmr] = useState();
+  const [level, setLevel] = useState();
+  const [winRate, setWinRate] = useState();
+  const player = JSON.parse(window.localStorage.getItem("playerStats"));
+
+  const setRankingDatas = () => {
+    playerRequest(`v1/mmr/eu/${player.name}/${player.tag}`).then((res) => {
+      setMmr(res.data.mmr_change_to_last_game);
+      getRankIcon(res.data.currenttierpatched.toUpperCase());
+    });
+  };
+
+  const getRankIcon = (rankName) => {
+    publicRequest("competitivetiers").then((res) =>
+      setRankIcon(
+        res.data[res.data.length - 1].tiers.find(
+          (item) => item.tierName === rankName
+        ).smallIcon
+      )
+    );
+  };
+
+  const getWinRate = () => {
+    playerRequest(`v3/matches/eu/${player.name}/${player.tag}`).then((res) => {
+      let matchesWon = 0;
+      res.data.forEach((match) => {
+        let team = match.players.all_players
+          .find((singlePlayer) => singlePlayer.name == player.name)
+          .team.toLowerCase();
+        if (match.teams[team].has_won) {
+          matchesWon += 1;
+        }
+      });
+      setWinRate(`${(matchesWon / res.data.length) * 100}%`);
+    });
+  };
+
+  useEffect(() => {
+    setRankingDatas();
+    getRankIcon();
+    setLevel(player.account_level);
+    getWinRate();
+  }, []);
 
   return (
     <PlayerinfoContainer>
-      <PlayerImage src={player.card.large} />
+      <PlayerImage src={player.card.small} />
       <PlayerStats>
-        <Typography fontSize={"55px"}>
+        <Typography fontSize={"50px"}>
           {player.name}#{player.tag}
         </Typography>
-        <Grid
-          container
-          columns={{ xs: 4, sm: 8, md: 12 }}
-          sx={{ margin: "10px 4px 10px 4px" }}
-        >
-          <Grid
-            item
-            xs={2}
-            sm={4}
-            md={4}
-            display="flex"
-            flexDirection={"column"}
-            alignItems="center"
-          >
-            <Typography>Level</Typography>
-            <Typography>Rank</Typography>
-            <Typography>MMR</Typography>
-            <Typography>Level</Typography>
-          </Grid>
-        </Grid>
+        <DataGrid
+          player={player}
+          datas={[
+            {
+              data: "rank",
+              value: rankIcon,
+              isImage: true,
+            },
+            {
+              data: "mmr",
+              value: mmr,
+              isImage: false,
+            },
+            {
+              data: "level",
+              value: level,
+              isImage: false,
+            },
+            {
+              data: "win rate",
+              value: winRate,
+              isImage: false,
+            },
+          ]}
+        />
       </PlayerStats>
     </PlayerinfoContainer>
   );

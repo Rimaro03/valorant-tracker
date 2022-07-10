@@ -26,7 +26,6 @@ export const MapList = () => {
   }, []);
 
   const renderMaps = maps.map((map) => {
-    console.log(1);
     return (
       <Grid
         item
