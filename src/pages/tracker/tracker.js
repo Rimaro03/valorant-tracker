@@ -9,6 +9,7 @@ import { UIProvider } from "../../context/ui/ui";
 import { Style } from "../../styles/AppBar/AppbarStyled";
 import { MapList } from "../../components/mapList/MapList";
 import { Banner } from "../../components/banner/Banner";
+import { MapSchema } from "../../components/mapList/MapSchema";
 
 function Tracker() {
   useEffect(() => {
@@ -20,6 +21,7 @@ function Tracker() {
       <UIProvider>
         <AppDrawer />
         <Search />
+        <MapSchema />
         <Style />
         <Appbar searchBar={true} />
         <Banner />

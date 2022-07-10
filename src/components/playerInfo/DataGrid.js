@@ -6,7 +6,7 @@ export const DataGrid = (props) => {
   return (
     <Grid
       container
-      columns={{ xs: 8, sm: 8, md: 8 }}
+      columns={{ xs: 4, sm: 8, md: 8 }}
       sx={{ margin: "10px 4px 10px 4px" }}
     >
       {props.datas.map((item, index) => {

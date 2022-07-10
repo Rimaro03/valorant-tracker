@@ -15,13 +15,13 @@ import { useState } from "react";
 import { playerRequest } from "../../API/request";
 import { useNavigate } from "react-router-dom";
 
-const SearchBoxContainer = styled(Box)(({ theme }) => ({
+export const SearchBoxContainer = styled(Box)(({ theme }) => ({
   position: "absolute",
   top: 0,
   left: 0,
   width: "100%",
   height: "100%",
-  background: Colors.primary,
+  background: Colors.black,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -48,7 +48,6 @@ const SearchField = styled(TextField)(({ theme }) => ({
 
 export default function Search() {
   const { showSearchBox, setShowSearchBox } = useUIContext();
-  const { loadingOpen, setLoadingOpen } = useUIContext();
   const [text, setText] = useState("");
   const navigate = useNavigate();
 
