@@ -1,6 +1,6 @@
 import React from "react";
 import { publicRequest } from "../../API/request";
-import { useUIContext } from "../../context/ui/ui";
+import { useUIContext } from "../../context/ui";
 import { Map, MapImage } from "../../styles/Maps/mapsStyled";
 import { MapMeta } from "./MapMeta";
 

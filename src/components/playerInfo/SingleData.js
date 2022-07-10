@@ -1,5 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
+import { DataTitle, DataValue } from "../../styles/PlayerInfo/PlayerInfoStyled";
 
 export const SingleData = (props) => {
   return (
@@ -11,15 +12,15 @@ export const SingleData = (props) => {
       display="flex"
       flexDirection={"column"}
       alignItems="center"
-      padding={0}
+      padding={"0.5em"}
     >
-      <Typography variant="h5" textTransform={"uppercase"}>
+      <DataTitle variant="h6" textTransform={"uppercase"}>
         {props.datas.data}
-      </Typography>
+      </DataTitle>
       {props.datas.isImage ? (
         <img src={props.datas.value} />
       ) : (
-        <Typography variant="h6">{props.datas.value}</Typography>
+        <DataValue variant="subtitle1">{props.datas.value}</DataValue>
       )}
     </Grid>
   );

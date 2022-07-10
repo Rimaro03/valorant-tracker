@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import React from "react";
-import { useUIContext } from "../../context/ui/ui";
+import { useUIContext } from "../../context/ui";
 
 const MiddleDivider = styled((props) => (
   <Divider variant="middle" {...props} />
@@ -22,9 +22,9 @@ export const AppDrawer = () => {
     if (
       !(
         e.target.attributes[0].nodeValue ==
-        "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root" ||
+          "MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root" ||
         e.target.attributes[0].nodeValue ==
-        "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
       )
     ) {
       setDrawerOpen(false);

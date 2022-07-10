@@ -2,7 +2,7 @@ import { Close } from "@mui/icons-material";
 import { Backdrop, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { publicRequest } from "../../API/request";
-import { useUIContext } from "../../context/ui/ui";
+import { useUIContext } from "../../context/ui";
 import { Colors } from "../../styles/themes/theme";
 import { SearchBoxContainer } from "../search/Search";
 

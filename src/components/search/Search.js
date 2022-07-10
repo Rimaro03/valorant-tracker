@@ -10,7 +10,7 @@ import { Box, styled } from "@mui/system";
 import { Colors } from "../../styles/themes/theme";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
-import { useUIContext } from "../../context/ui/ui";
+import { useUIContext } from "../../context/ui";
 import { useState } from "react";
 import { playerRequest } from "../../API/request";
 import { useNavigate } from "react-router-dom";

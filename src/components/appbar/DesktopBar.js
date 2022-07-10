@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { Link } from "@mui/material";
-import { useUIContext } from "../../context/ui/ui";
+import { useUIContext } from "../../context/ui";
 import {
   AppbarContainer,
   AppbarHeader,
@@ -39,17 +39,21 @@ export const DesktopBar = (props, { matches }) => {
           </Link>
         </ListItem>
         <ListItem>
-          {props.searchBar ? <ListItemButton
-            sx={{ justifyContent: "center" }}
-            onClick={() => setShowSearchBox(true)}
-          >
-            <ListItemIcon>
-              <Search />
-            </ListItemIcon>
-            <ListItemText>
-              <Typography variant="button">Search</Typography>
-            </ListItemText>
-          </ListItemButton> : <></>}
+          {props.searchBar ? (
+            <ListItemButton
+              sx={{ justifyContent: "center" }}
+              onClick={() => setShowSearchBox(true)}
+            >
+              <ListItemIcon>
+                <Search />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography variant="button">Search</Typography>
+              </ListItemText>
+            </ListItemButton>
+          ) : (
+            <></>
+          )}
         </ListItem>
       </MyList>
     </AppbarContainer>

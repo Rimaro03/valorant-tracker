@@ -3,10 +3,11 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { PlayerInfo } from "../../components/playerInfo/PlayerInfo";
 import Search from "../../components/search/Search";
-import { UIProvider } from "../../context/ui/ui";
+import { UIProvider } from "../../context/ui";
 import { Appbar } from "../../components/appbar/Appbar";
 import { AppDrawer } from "../../components/drawer/Drawer";
 import { Style } from "../../styles/AppBar/AppbarStyled";
+import { Typography } from "@mui/material";
 
 export const Player = () => {
   const navigate = useNavigate();
@@ -24,6 +25,14 @@ export const Player = () => {
         <Search />
         <Appbar searchBar={true} />
         <PlayerInfo />
+        <Typography
+          variant="h4"
+          display={"flex"}
+          justifyContent="center"
+          sx={{ p: 4 }}
+        >
+          Matches
+        </Typography>
       </UIProvider>
     </Container>
   );

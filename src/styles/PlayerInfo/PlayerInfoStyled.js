@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Colors } from "../themes/theme";
 
@@ -22,14 +23,33 @@ export const PlayerStats = styled(Box)(({ theme }) => ({
 
 export const PlayerImage = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
-  width: "auto",
-  height: "150px",
+  width: "200px",
+  height: "200px",
+
   [theme.breakpoints.down("md")]: {
-    width: "350px",
+    width: "150px",
+    height: "150px",
   },
 
   [theme.breakpoints.down("sm")]: {
-    width: "320px",
-    height: "300px",
+    width: "150px",
+    height: "auto",
   },
 }));
+
+export const PlayerTitle = styled(Typography)(({ theme }) => ({
+  textAlign: "center",
+  margin: "1em",
+  fontSize: "30px",
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "24px",
+  },
+}));
+
+export const DataTitle = styled(Typography)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "18px",
+  },
+}));
+
+export const DataValue = styled(Typography)(({ theme }) => ({}));

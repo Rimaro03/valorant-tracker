@@ -5,7 +5,7 @@ import { Appbar } from "../../components/appbar/Appbar";
 import { AppDrawer } from "../../components/drawer/Drawer";
 import { Footer } from "../../components/footer/Footer";
 import Search from "../../components/search/Search";
-import { UIProvider } from "../../context/ui/ui";
+import { UIProvider } from "../../context/ui";
 import { Style } from "../../styles/AppBar/AppbarStyled";
 import { MapList } from "../../components/mapList/MapList";
 import { Banner } from "../../components/banner/Banner";

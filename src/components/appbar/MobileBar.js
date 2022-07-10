@@ -1,7 +1,7 @@
 import { Search, Menu } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import React from "react";
-import { useUIContext } from "../../context/ui/ui";
+import { useUIContext } from "../../context/ui";
 import {
   AppbarContainer,
   AppbarHeader,

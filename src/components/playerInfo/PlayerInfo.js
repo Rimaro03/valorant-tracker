@@ -5,6 +5,7 @@ import {
   PlayerImage,
   PlayerinfoContainer,
   PlayerStats,
+  PlayerTitle,
 } from "../../styles/PlayerInfo/PlayerInfoStyled";
 import { DataGrid } from "./DataGrid";
 
@@ -58,9 +59,9 @@ export const PlayerInfo = () => {
     <PlayerinfoContainer>
       <PlayerImage src={player.card.small} />
       <PlayerStats>
-        <Typography fontSize={"50px"}>
+        <PlayerTitle variant="h3">
           {player.name}#{player.tag}
-        </Typography>
+        </PlayerTitle>
         <DataGrid
           player={player}
           datas={[
