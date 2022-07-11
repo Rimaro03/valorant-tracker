@@ -10,6 +10,7 @@ import { Style } from "../../styles/AppBar/AppbarStyled";
 import { MapList } from "../../components/mapList/MapList";
 import { Banner } from "../../components/banner/Banner";
 import { MapSchema } from "../../components/mapList/MapSchema";
+import { PlayerError } from "../../components/playerError/PlayerError";
 
 function Tracker() {
   useEffect(() => {
@@ -35,11 +36,7 @@ function Tracker() {
         </Typography>
         <MapList />
         <Footer />
-        {/** 
-        hidden drawer for mobile
-        MainPage (welcome page)
-        Footer
-        */}
+        <PlayerError />
       </UIProvider>
     </Container>
   );

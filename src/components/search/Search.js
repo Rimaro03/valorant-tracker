@@ -50,6 +50,7 @@ export default function Search() {
   const { showSearchBox, setShowSearchBox } = useUIContext();
   const [text, setText] = useState("");
   const navigate = useNavigate();
+  const { snackOpen, setSnackOpen } = useUIContext();
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -63,7 +64,7 @@ export default function Search() {
         window.localStorage.setItem("playerStats", JSON.stringify(res.data));
         navigate("/player");
       } else {
-        alert("errore");
+        setSnackOpen(true);
       }
     });
   };

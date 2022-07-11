@@ -5,6 +5,7 @@ import {
   ListItem,
   Typography,
   ListItemText,
+  Box,
 } from "@mui/material";
 import React from "react";
 import { Link } from "@mui/material";
@@ -22,14 +23,14 @@ export const DesktopBar = (props, { matches }) => {
   return (
     <AppbarContainer>
       <AppbarHeader>TRaCKER</AppbarHeader>
-      <MyList type="row">
-        <ListItem>
-          <MyLink to="/tracker">Tracker</MyLink>
+      <Box sx={{ display: "flex", justifyContent: "space-around", width: "100%" }}>
+        <ListItem sx={{ justifyContent: "center", alignItems: "center" }}>
+          <MyLink to="/tracker" sx={{ textAlign: "center" }}>Tracker</MyLink>
         </ListItem>
-        <ListItem>
+        <ListItem sx={{ justifyContent: "center", alignItems: "center" }}>
           <MyLink to="/items">Game items</MyLink>
-        </ListItem>
-        <ListItem>
+        </ListItem >
+        <ListItem sx={{ justifyContent: "center", alignItems: "center" }}>
           <Link
             href="https://www.github.com/Rimaro03/valorant-tracker"
             underline="none"
@@ -55,7 +56,7 @@ export const DesktopBar = (props, { matches }) => {
             <></>
           )}
         </ListItem>
-      </MyList>
+      </Box>
     </AppbarContainer>
   );
 };

@@ -17,7 +17,7 @@ export const Footer = () => {
         fontSize: { xs: "12px", md: "12px" },
       }}
     >
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2} justifyContent="center" pl="2em" pr="2em">
         <Grid item md={6} lg={4}>
           <FooterTitle variant="body1">About me</FooterTitle>
           <Typography variant="caption">

@@ -24,3 +24,10 @@ export const MapMetaWrapper = styled(Box)(() => ({
   flexDirection: "column",
   alignItems: "center",
 }));
+
+export const MapSchemaImage = styled("img")(({ src, theme }) => ({
+  src: `url(${src})`,
+  [theme.breakpoints.down("lg")]: {
+    width: "100%"
+  }
+}))

@@ -9,6 +9,7 @@ export const UIProvider = ({ children }) => {
   const [loadingOpen, setLoadingOpen] = useState(false);
   const [showSchema, setShowSchema] = useState(false);
   const [schemaMap, setSchemaMap] = useState(null);
+  const [snackOpen, setSnackOpen] = useState(false);
 
   const value = {
     drawerOpen,
@@ -21,6 +22,8 @@ export const UIProvider = ({ children }) => {
     setShowSchema,
     schemaMap,
     setSchemaMap,
+    snackOpen,
+    setSnackOpen,
   };
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };

@@ -8,6 +8,7 @@ import { Appbar } from "../../components/appbar/Appbar";
 import { AppDrawer } from "../../components/drawer/Drawer";
 import { Style } from "../../styles/AppBar/AppbarStyled";
 import { Typography } from "@mui/material";
+import { MatchList } from "../../components/matchList/MatchList";
 
 export const Player = () => {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ export const Player = () => {
         >
           Matches
         </Typography>
+        <MatchList />
       </UIProvider>
     </Container>
   );

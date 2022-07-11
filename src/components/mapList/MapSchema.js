@@ -3,6 +3,7 @@ import { Backdrop, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { publicRequest } from "../../API/request";
 import { useUIContext } from "../../context/ui";
+import { MapSchemaImage } from "../../styles/Maps/mapsStyled";
 import { Colors } from "../../styles/themes/theme";
 import { SearchBoxContainer } from "../search/Search";
 
@@ -13,7 +14,7 @@ export const MapSchema = () => {
   return (
     <Backdrop open={showSchema}>
       <SearchBoxContainer>
-        <img src={schemaMap} />
+        <MapSchemaImage src={schemaMap} />
         <IconButton
           onClick={() => setShowSchema(false)}
           sx={{
