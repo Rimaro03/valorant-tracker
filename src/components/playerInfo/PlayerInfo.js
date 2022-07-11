@@ -11,14 +11,14 @@ import { DataGrid } from "./DataGrid";
 
 export const PlayerInfo = () => {
   const [rankIcon, setRankIcon] = useState();
-  const [mmr, setMmr] = useState();
+  const [rr, setRr] = useState();
   const [level, setLevel] = useState();
   const [winRate, setWinRate] = useState();
   const player = JSON.parse(window.localStorage.getItem("playerStats"));
 
   const setRankingDatas = () => {
     playerRequest(`v1/mmr/eu/${player.name}/${player.tag}`).then((res) => {
-      setMmr(res.data.mmr_change_to_last_game);
+      setRr(res.data.ranking_in_tier);
       getRankIcon(res.data.currenttierpatched.toUpperCase());
     });
   };
@@ -71,8 +71,8 @@ export const PlayerInfo = () => {
               isImage: true,
             },
             {
-              data: "mmr",
-              value: mmr,
+              data: "RR",
+              value: rr,
               isImage: false,
             },
             {
