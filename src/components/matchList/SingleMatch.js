@@ -1,21 +1,9 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Icon,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { publicRequest } from "../../API/request";
-import {
-  MatchMeta,
-  SingleMatchContainer,
-} from "../../styles/MatchList/MatchListStyled";
 import { MatchPreview } from "./MatchPreview";
+import { PlayersList } from "./PlayersList";
 
 export const SingleMatch = (props) => {
   const player = props.match.players.all_players.find(
@@ -23,6 +11,10 @@ export const SingleMatch = (props) => {
   );
   const agent = player.character;
   const [agentIcon, setAgentIcon] = useState();
+  const teams = {
+    playerTeam: player.team.toLowerCase(),
+    enemyTeam: player.team.toLowerCase() === "red" ? "blue" : "red",
+  };
 
   const getAgentIcon = () => {
     publicRequest("agents").then((res) =>
@@ -43,11 +35,14 @@ export const SingleMatch = (props) => {
         <MatchPreview
           match={props.match}
           player={player}
-          agentiIcon={agentIcon}
+          agentIcon={agentIcon}
+          teams={teams}
         />
-        {console.log(agentIcon)}
+        {console.log(teams)}
       </AccordionSummary>
-      <AccordionDetails>{/*graphic*/}</AccordionDetails>
+      <AccordionDetails>
+        <PlayersList match={props.match} player={player} teams={teams} />
+      </AccordionDetails>
     </Accordion>
   );
 };

@@ -32,10 +32,14 @@ export const MatchPreview = (props) => {
       </ListItem>
 
       <ListItem alignItems="center" sx={{ justifyContent: "center" }}>
-        <Typography sx={{ textAlign: "center" }}>
-          {props.match.teams.red.rounds_won} :{" "}
-          {props.match.teams.blue.rounds_won}
-        </Typography>
+        {props.match.metadata.mode === "Deathmatch" ? (
+          <></>
+        ) : (
+          <Typography sx={{ textAlign: "center" }}>
+            {props.match.teams[props.teams.playerTeam].rounds_won} :{" "}
+            {props.match.teams[props.teams.enemyTeam].rounds_won}
+          </Typography>
+        )}
       </ListItem>
 
       <MatchMeta>
