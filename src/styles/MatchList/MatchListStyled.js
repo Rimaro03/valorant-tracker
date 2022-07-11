@@ -10,4 +10,5 @@ export const SingleMatchContainer = styled(Box)(({ theme }) => ({
 
 export const MatchMeta = styled(Box)(({ theme }) => ({
   display: "flex",
+  width: "100%",
 }));

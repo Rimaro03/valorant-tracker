@@ -1,5 +1,6 @@
 import {
   Accordion,
+  AccordionDetails,
   AccordionSummary,
   Icon,
   ListItem,
@@ -14,6 +15,7 @@ import {
   MatchMeta,
   SingleMatchContainer,
 } from "../../styles/MatchList/MatchListStyled";
+import { MatchPreview } from "./MatchPreview";
 
 export const SingleMatch = (props) => {
   const player = props.match.players.all_players.find(
@@ -33,58 +35,19 @@ export const SingleMatch = (props) => {
 
   useEffect(() => {
     getAgentIcon();
-    console.log(agentIcon);
   }, []);
 
   return (
     <Accordion>
       <AccordionSummary>
-        <SingleMatchContainer>
-          <ListItem>
-            <ListItemIcon sx={{ marginRight: "1em" }}>
-              <img src={agentIcon} width="60px" />
-            </ListItemIcon>
-            <ListItemText
-              primary={
-                <React.Fragment>
-                  <Typography>
-                    {props.match.metadata.map.toUpperCase()}
-                  </Typography>
-                </React.Fragment>
-              }
-              secondary={
-                <React.Fragment>
-                  <Typography>{props.match.metadata.mode}</Typography>
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-
-          <ListItem>
-            <Typography>
-              {props.match.teams.red.rounds_won} :{" "}
-              {props.match.teams.blue.rounds_won}
-            </Typography>
-          </ListItem>
-
-          <MatchMeta>
-            <ListItem>
-              <ListItemText
-                primary={"K/D/A"}
-                secondary={`${player.stats.kills}/${player.stats.deaths}/${player.stats.assists}`}
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={"K/D%"}
-                secondary={(player.stats.kills / player.stats.deaths)
-                  .toString()
-                  .slice(0, 3)}
-              />
-            </ListItem>
-          </MatchMeta>
-        </SingleMatchContainer>
+        <MatchPreview
+          match={props.match}
+          player={player}
+          agentiIcon={agentIcon}
+        />
+        {console.log(agentIcon)}
       </AccordionSummary>
+      <AccordionDetails>{/*graphic*/}</AccordionDetails>
     </Accordion>
   );
 };
