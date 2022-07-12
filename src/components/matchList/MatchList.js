@@ -1,6 +1,7 @@
-import { Accordion, AccordionSummary, Container } from "@mui/material";
+import { Accordion, AccordionSummary, Container, List } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { playerRequest } from "../../API/request";
+import { ModeMenu } from "./ModeMenu";
 import { SingleMatch } from "./SingleMatch";
 
 export const MatchList = () => {
@@ -18,7 +19,8 @@ export const MatchList = () => {
   }, []);
 
   return (
-    <Container>
+    <Container >
+      <ModeMenu />
       {matches.map((item, index) => {
         return <SingleMatch match={item} player={player} key={index} />;
       })}
