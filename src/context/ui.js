@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { publicRequest } from "../API/request";
 
 export const UIContext = createContext({});
 export const useUIContext = () => useContext(UIContext);
@@ -11,7 +12,14 @@ export const UIProvider = ({ children }) => {
   const [schemaMap, setSchemaMap] = useState(null);
   const [snackOpen, setSnackOpen] = useState(false);
   const [matchDataOpen, setMatchDataOpen] = useState(false);
-  const [selectedModes, setSelectedModes] = useState([]);
+  const [selectedModes, setSelectedModes] = useState([
+    "escalation",
+    "spikerush",
+    "deathmatch",
+    "competitive",
+    "unrated",
+    "replication",
+  ]);
 
   const value = {
     drawerOpen,
@@ -29,7 +37,7 @@ export const UIProvider = ({ children }) => {
     matchDataOpen,
     setMatchDataOpen,
     selectedModes,
-    setSelectedModes
+    setSelectedModes,
   };
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>;
 };

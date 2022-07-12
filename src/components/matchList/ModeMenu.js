@@ -1,41 +1,78 @@
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
-import { Box } from '@mui/system';
-import React, { useEffect, useState } from 'react'
-import { publicRequest } from '../../API/request';
-import { useUIContext } from '../../context/ui';
+import { TramRounded } from "@mui/icons-material";
+import {
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Typography,
+} from "@mui/material";
+import { Box } from "@mui/system";
+import React, { useEffect, useState } from "react";
+import { publicRequest } from "../../API/request";
+import { useUIContext } from "../../context/ui";
+import { Colors } from "../../styles/themes/theme";
 
 export const ModeMenu = () => {
-    const [availabelModes, setAvailableModes] = useState([]);
-    const { selectedModes, setSelectedModes } = useUIContext([]);
+  const availabelModes = [
+    "escalation",
+    "spikerush",
+    "deathmatch",
+    "competitive",
+    "unrated",
+    "replication",
+  ];
+  const { selectedModes, setSelectedModes } = useUIContext();
 
-    const getModes = () => {
-        let modesList = []
-        publicRequest("gamemodes").then(res => res.data.forEach(mode => {
-            modesList.push({ name: mode.displayName, selected: true })
-        }))
-        setSelectedModes(modesList)
+  const handleChoice = (e, mode) => {
+    if (!e.target.checked) {
+      let target = selectedModes.indexOf(mode);
+      if (target) {
+        let modes = selectedModes;
+        modes.splice(target, 1);
+        setSelectedModes(modes);
+      }
+      console.log();
+    } else {
+      let target = selectedModes.indexOf(mode);
+      if (!target) {
+        let modes = selectedModes;
+        modes.push(mode);
+        setSelectedModes(modes);
+      }
     }
+  };
 
-    const handleChoice = (e) => {
-        console.log(e)
-    };
-
-    useEffect(() => {
-        getModes();
-    }, [])
-
-    return (
+  return (
+    <Box sx={{ width: "20%" }}>
+      <Box
+        sx={{
+          padding: "1em",
+          marginRight: "2em",
+          border: `1px solid ${Colors.light_gray}`,
+          borderRadius: "1em",
+          backgroundColor: Colors.light_gray,
+        }}
+      >
+        <Typography variant="h6" sx={{ borderBottom: "1px solid grey" }}>
+          Modes
+        </Typography>
         <FormGroup>
-            {selectedModes.map((mode, index) => {
-                return (
-                    <FormControlLabel
-                        label={mode.name}
-                        control={<Checkbox checked={true} onChange={handleChoice}
-                            key={index}
-                        />}
-                    />
-                )
-            })}
+          {availabelModes.map((mode, index) => {
+            return (
+              <FormControlLabel
+                label={mode}
+                key={index}
+                control={
+                  <Checkbox
+                    defaultChecked={true}
+                    onChange={(e) => handleChoice(e, mode)}
+                    key={index}
+                  />
+                }
+              />
+            );
+          })}
         </FormGroup>
-    );
-}
+      </Box>
+    </Box>
+  );
+};
