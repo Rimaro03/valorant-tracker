@@ -14,7 +14,9 @@ export const SingleMap = ({ map, matches }) => {
         res.data.find((mapName) => mapName.displayName === map.name).displayIcon
       )
     );
-    setShowSchema(true);
+    if (!(map.name === "The Range")) {
+      setShowSchema(true);
+    }
   };
 
   return (
