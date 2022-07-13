@@ -30,7 +30,6 @@ export const ModeMenu = () => {
         modes.splice(target, 1);
         setSelectedModes(modes);
       }
-      console.log();
     } else {
       let target = selectedModes.indexOf(mode);
       if (!target) {
