@@ -1,14 +1,9 @@
 import { Backdrop, CircularProgress } from '@mui/material'
 import React, { useEffect } from 'react'
-import { useUIContext } from '../../../../context/ui/ui'
+import { useUIContext } from '../../context/ui';
 
 export const Loading = () => {
     const { loadingOpen, setLoadingOpen } = useUIContext();
-
-    useEffect(() => {
-        console.log(loadingOpen);
-    }, [])
-
 
     return (
         <Backdrop

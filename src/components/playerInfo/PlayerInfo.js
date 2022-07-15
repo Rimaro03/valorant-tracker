@@ -1,12 +1,14 @@
 import { Icon, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { playerRequest, publicRequest } from "../../API/request";
+import { useUIContext } from "../../context/ui";
 import {
   PlayerImage,
   PlayerinfoContainer,
   PlayerStats,
   PlayerTitle,
 } from "../../styles/PlayerInfo/PlayerInfoStyled";
+import { Loading } from "../search/Loading";
 import { DataGrid } from "./DataGrid";
 
 export const PlayerInfo = () => {
@@ -88,6 +90,7 @@ export const PlayerInfo = () => {
           ]}
         />
       </PlayerStats>
+      <Loading />
     </PlayerinfoContainer>
   );
 };
